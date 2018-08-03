@@ -146,7 +146,7 @@ if ~ischar(handles.directoryname)
 end
 
 % handles.directoryname
-handles.files = dir(sprintf('%s\\*.img',handles.directoryname));
+handles.files = dir(sprintf('%s/*.img',handles.directoryname));
 % handles.files.name
 % To view in workspace: assignin('base','names',sort_nat({handles.files.name}))
 % sort_nat does a natural sort, so images appear in order
