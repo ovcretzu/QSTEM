@@ -415,7 +415,7 @@ end
 cd(oldPath);
 
 if (0)
-    [coords, aType, Mm,DW,occ,charge] = readCFG_qstem(handles.posFileName,[0 0 0],0);
+    [coords, aType, Mm,DW,occ,charge] = readCFG2(handles.posFileName);
     if isempty(coords)
         msgbox(sprintf('Could not open .cfg file %s!',handles.posFileName));
     else
@@ -1106,10 +1106,10 @@ if (0)
     oldPath = pwd()
     cd(pathname);
     
-    [coords, aType, Mm, DW, occ, charge] = readCFG_qstem(filename,[0 0 0],2);
+    [coords, aType, Mm, DW, occ, charge] = readCFG2(filename);
     cd(oldPath);
 else
-    [coords, aType, Mm, DW, occ, charge] = readCFG_qstem(fullfile(pathname,filename),[0 0 0],2);
+    [coords, aType, Mm, DW, occ, charge] = readCFG2(fullfile(pathname,filename));
 end
 
 if ~isempty(coords)
