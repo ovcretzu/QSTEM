@@ -2544,7 +2544,14 @@ void doTEM() {
 
 		sprintf(avgName,"%s/diff.img",muls.folder);
 
-		wave->ReadDiffPat(avgName);
+		if (fopen(avgName, "r") != NULL)
+		    {
+		    wave->ReadDiffPat(avgName);
+		    }
+		else
+		    {
+		    wave->WriteDiffPat(avgName, "DEBUG Difraction pattern");
+		    }
 
 		if (muls.avgCount == 0) {
 			/***********************************************************

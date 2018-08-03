@@ -539,16 +539,15 @@ void make3DSlices(MULS *muls,int nlayer,char *fileIn,atom *center) {
 
 		qsort(atoms,natom,sizeof(atom),atomCompare);
 
-
 		if ((*muls).cfgFile != NULL) 
 		{
-			sprintf(buf,"%s/%s",muls->folder,muls->cfgFile);
+			sprintf(buf,"%s",muls->cfgFile);
 			// append the TDS run number
 			if (strcmp(buf+strlen(buf)-4,".cfg") == 0) *(buf+strlen(buf)-4) = '\0';
 			if (muls->tds) sprintf(buf+strlen(buf),"_%d.cfg",muls->avgCount);
 			else sprintf(buf+strlen(buf),".cfg");
 		
-			// printf("Will write CFG file <%s> (%d)\n",buf,muls->tds)
+			// printf("Will write CFG file <%s> (%d)\n",buf,muls->tds);
 			writeCFG(atoms,natom,buf,muls);
 
 			if (muls->readPotential) 
